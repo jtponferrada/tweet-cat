@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title>::TwitterCat:: - [Catch phrase here]</title>
+		<link href="design.css" type="text/css" rel="stylesheet" />
+		
+        <script type="text/javascript">
+			function setupRemoveDefault() {
+				var els = document.getElementsByTagName("input");
+				for(var i=0,j=els.length; i<j; i++) {
+					els[i].onclick = function () {removeDefault(this);}
+				}
+			}
+			function removeDefault(el) {
+				if((!el.rel || el.value == el.rel) && (el.type == "text" || el.type == "")) {     el.rel = el.value;
+					el.value = '';
+					var elName = el.id;
+					el.onblur = function () { if(!el.value) {addDefault(elName);}}
+					return true;
+				}
+			}
+			function addDefault(elName) {
+				var el = document.getElementById(elName);
+				el.value = el.rel;
+			}
+		</script>
+        
+        
+	</head>
+	
+    <!--
+    <body onload="setupRemoveDefault();">
+    -->
+    <body>
+        <div id="meow">
+		</div>
+
+		<div id="main_box">
+			<div id="top_bar">
+				<img class="left" src="images/logo.png" />
+			</div>
+
+			<div id="main_content">
+				<table>
+					<tr>
+						<td align="center">
+							<h1 class="centered">Filter twitter feeds according to type:</h1>
+							<h2 class="centered">Images, Videos, Pure Links</h2>
+						</td>
+					</tr>
+					<tr>
+						<td>
+                            <!-- publicusertimeline.php will process this form when submitted-->
+                            
+							<form id="main_search" action="publicusertimeline.php" method="get" >
+								<div class="centered">
+									<input class="searchbox" type="text" value="Enter Twitter Username" name="twitter_sname" />
+                                    <input type="hidden" name="pagevalue" value=1>
+									<input class="searchbutton" type="submit" value="Categorize Feeds" />
+								</div>
+							</form>
+                            
+						</td>
+					</tr>
+				</table>
+
+
+			</div>
+
+			<div id="footer">
+				<table width="100%">
+					<tr>
+						<td>
+							<h3>About</h3>
+						</td>
+						<td>
+							<h3>Documentation</h3>
+						</td>
+						<td>
+							<h3>Contact</h3>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center">
+							<font color="#704b22">Copyright &copy 2011 Group 6</font>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+
+		</div>
+
+	</body>
+</html>
+
